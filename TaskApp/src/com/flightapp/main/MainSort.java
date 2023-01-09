@@ -15,11 +15,11 @@ public class MainSort {
 		
 		       Set<Flight> allFlights=new HashSet<>();
 		       
-		       Flight f1= new Flight(101, "harshitha","hyderbad","delhi", 1.00f, 3.00f,"12-1-2023",2000,2.00f);
-		       Flight f2= new Flight(104, "venu","hyderbad","delhi", 3.00f, 4.00f,"12-1-2023",3000,1.00f);
-		       Flight f3= new Flight(103, "raj","goa","mubai", 1.00f, 2.00f,"11-1-2023",1200,2.00f);
-		       Flight f4= new Flight(102, "harshitha","hyderbad","delhi", 1.00f, 2.00f,"15-3-2023",3300,1.00f);
-		       Flight f5= new Flight(105, "mani","mumbai","delhi", 1.00f, 2.00f,"12-4-2023",1000,2.00f);
+		       Flight f1= new Flight(101, "indigo","hyderbad","delhi", 1.00f, 3.00f,"12-1-2023",2000,2.00f);
+		       Flight f2= new Flight(104, "air india","hyderbad","delhi", 3.00f, 4.00f,"12-1-2023",3000,1.00f);
+		       Flight f3= new Flight(103, "vistara","goa","mubai", 1.00f, 2.00f,"11-1-2023",1200,2.00f);
+		       Flight f4= new Flight(102, "indigo","hyderbad","delhi", 1.00f, 2.00f,"15-3-2023",3300,1.00f);
+		       Flight f5= new Flight(105, "air asia","mumbai","delhi", 1.00f, 2.00f,"12-4-2023",1000,2.00f);
 		       
 		       
 		       allFlights.add(f1);
