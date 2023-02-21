@@ -1,0 +1,17 @@
+
+<div *ngFor="let r of allRestaurants" style="background-color:rgb(244, 166, 138);">
+    <table>
+        <tr>
+            <td> <img src="/assets/images/{{r.imageName}}" alt=" Restaurant image" width="150px" height="150px">
+            </td>
+            <td>
+                <h2>{{r.restaurantName}} </h2>
+                <hr />
+                <p> {{r.managerName}} </p>
+                <br>
+                <p>{{r.city}} ,{{r.buildingName}} ,{{r.area}} ,{{r.streetNo}} ,{{r.state}} ,{{r.country}} ,{{r.pincode}}</p>
+            </td>
+        </tr>
+        <hr>
+    </table>
+</div>
