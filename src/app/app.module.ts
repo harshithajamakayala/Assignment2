@@ -6,10 +6,18 @@ import { AppComponent } from './app.component';
 import { AdminWorkComponent } from './admin-work/admin-work.component';
 import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './user/user.component';
+import {FormsModule} from '@angular/forms';
+import { ItemAdminWorkComponent } from './item-admin-work/item-admin-work.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AdminViewComponent } from './admin-view/admin-view.component';
+import { ItemViewComponent } from './item-view/item-view.component';
 
 const allLinks:Routes = [
   {path:'launchrestuarant',component:AdminWorkComponent},
   {path:'restaurants',component:UserComponent},
+  {path:'launchitems',component:ItemAdminWorkComponent },
+  {path:'viewItems',component:ItemViewComponent },
+  
   
 ]
 
@@ -19,12 +27,17 @@ const allLinks:Routes = [
     AppComponent,
     AdminWorkComponent,
     UserComponent,
+    ItemAdminWorkComponent,
+    AdminViewComponent,
+    ItemViewComponent,
     
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(allLinks),
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 export class Restaurant {
+     restaurantId:number;
      restaurantName:string;
 	 managerName:string;
 	contactNumber:string;
@@ -9,9 +10,10 @@ export class Restaurant {
 	state:string;
    country:string;
    pincode:string;
-   imageName:string;
+   imageName:string
+  
 
-    constructor( restaurantName:string,
+    constructor( restaurantId:number, restaurantName:string,
         managerName:string,
        contactNumber:string,
         buildingName:string,
@@ -21,8 +23,9 @@ export class Restaurant {
        state:string,
        country:string,
        pincode:string,
-       imageName:string){
-
+       imageName:string
+       ){
+        this.restaurantId=restaurantId;
         this.restaurantName=restaurantName;
         this.managerName=managerName;
         this.contactNumber=contactNumber;
@@ -33,7 +36,7 @@ export class Restaurant {
         this.state=state;
         this.country=country;
         this.pincode=pincode;
-        this.imageName=imageName;
+       this.imageName=imageName;
 
        }
 

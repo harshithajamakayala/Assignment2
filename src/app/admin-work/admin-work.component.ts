@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Restaurant } from '../restaurant';
 import { RestaurantServiceOperationsService } from '../restaurant-service-operations.service';
 
@@ -7,29 +8,38 @@ import { RestaurantServiceOperationsService } from '../restaurant-service-operat
   templateUrl: './admin-work.component.html',
   styleUrls: ['./admin-work.component.css']
 })
-export class AdminWorkComponent {
+export class AdminWorkComponent implements OnInit {
   __restaurantService: RestaurantServiceOperationsService;
+  status = false;
+  message = '';
+  r: Restaurant = new Restaurant(0,'', '', '', '', '', '', '', '', '','','');
 
   constructor(restaurantService: RestaurantServiceOperationsService) {
     this.__restaurantService = restaurantService;
   }
 
-  readRestaurants( restaurantName:string,
-    managerName:string,
-   contactNumber:string,
-    buildingName:string,
-    area:string,
-   streetNo:string,
-   city:string,
-   state:string,
-   country:string,
-   pincode:string,
-   imageName:string){
-    console.log(restaurantName+" "+managerName+" "+contactNumber+" "+buildingName+""+country);
-    let restaurantFromUser:Restaurant= new Restaurant(restaurantName,managerName,contactNumber,buildingName,area,streetNo,city,state,country,pincode,imageName);
-    this.__restaurantService.addRestaurants(restaurantFromUser);
+  ngOnInit() {
+   
     
-
   }
+ 
+  onSubmit() {
+    console.log(this.r);
+    
+    this.__restaurantService.submitRestaurant(this.r).subscribe(
+      
+    
+      data=>{
+        this.status=true;
+        this.message="flight review submitted";
 
+      },
+      error=>{
+
+      }
+
+    )
+
+  
+  }
 }

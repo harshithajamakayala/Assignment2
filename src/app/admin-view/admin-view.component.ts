@@ -5,30 +5,29 @@ import { RestaurantDto } from '../restaurant-dto';
 import { RestaurantServiceOperationsService } from '../restaurant-service-operations.service';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  selector: 'app-admin-view',
+  templateUrl: './admin-view.component.html',
+  styleUrls: ['./admin-view.component.css']
 })
-export class UserComponent {
-
+export class AdminViewComponent {
   __restaurantService:RestaurantServiceOperationsService;
   router:Router;
 
   allRestaurants:RestaurantDto[]=[];
  
- 
+  showStatus:boolean=false;
 
   constructor(restaurantService:RestaurantServiceOperationsService,router:Router){
     this.__restaurantService=restaurantService;
-   
     this.router=router;
   }
 
-  viewDetailsofItems()
+  addItem()
   {
     
-    this.router.navigate(['viewItems']);
+    this.router.navigate(['launchitems']);
   }
+  
 
   viewAllRestaurants(){
     this.__restaurantService.getAllRestaurants().subscribe(
@@ -42,35 +41,5 @@ export class UserComponent {
        }
     )
   }
-
-  viewAllRestuarantsByCity(city:string){
-    this.__restaurantService.getAllRestaurantsByCity(city).subscribe(
-      data=>{
-       console.log("data:-"+data);
-       this.allRestaurants=data;
-       
-      },err=>{
-       console.log("error from spring",err);
-       
-      }
-   )
-
-  }
-  
-  viewAllRestuarantsByState(state:string){
-    this.__restaurantService.getAllRestaurantsByState(state).subscribe(
-      data=>{
-       console.log("data:-"+data);
-       this.allRestaurants=data;
-       
-      },err=>{
-       console.log("error from spring",err);
-       
-      }
-   )
-
-  }
-
- 
 
 }
