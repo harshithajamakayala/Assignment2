@@ -1,7 +1,9 @@
-<div *ngFor="let i of allItems" style="background-color:rgb(244, 166, 138);">
+<br>
+<button class="btn btn-primary" (click)=" viewAllItems()">All Items</button>
+<div *ngFor="let i of items" style="background-color:rgb(244, 166, 138);">
     <table>
         <tr>
-            <td> <img src="/assets/images/{{i.imageName}}" alt=" Item image" width="150px" height="150px">
+            <td> <img src="/assets/images/{{i.imageName}}" alt=" Item image" width="90px" height="90px">
             </td>
             <td>
                 <h2>{{i.itemName}} </h2>
@@ -9,9 +11,10 @@
                 <p> {{i.category}} </p>
                 <br>
                 <h4>{{i.cost}}</h4>
-                
+                <button class="btn btn-primary">Add to Cart</button>
             </td>
         </tr>
         <hr>
     </table>
 </div>
+<br>

@@ -15,25 +15,40 @@ export class ItemOperationsService {
   constructor(private http:HttpClient) { }
   baseURL:string = 'http://localhost:2022';
   submitItemEndPoint:string=this.baseURL+'/items/register';
-  updateRestuarantWithItemEndPoint:string=this.baseURL+'/items'
+ getAllItemsEndPoint:string=this.baseURL+'/items/list';
   
   getItemArr(){
     return [];
   }
   
-
-  submitItems(items:Item):Observable<Item>{
+//localhost:2022/items/2/restaurant/3
+  submitItems(items:Item,restaurantId:string):Observable<Item>{
     console.log("inside the method :"+items);
+    let updateEndPoint='';
+    let itemFromDB:Item=new Item(0,'','',0,'');
+    this.http.post<Item>(`${this.submitItemEndPoint}`,items).subscribe( 
+      data=>{
+     itemFromDB=data;
+     updateEndPoint =this.baseURL+'/items/'+itemFromDB.itemId+'/restaurant/'+restaurantId;
+     console.log("inside service layer abc "+updateEndPoint);
+     return this.http.put<Item>(`${updateEndPoint}`,itemFromDB);
+     
+    },
+    error=>{
+      
+      console.log("error during save item"+error);
+      
+    })
+    console.log("abc 2");
+    
+    return this.http.put<Item>(`${updateEndPoint}`,itemFromDB);
 
-    return this.http.post<Item>(`${this.submitItemEndPoint}`,items);
   }
  
- updateItemWithRestaurant(itemid:number,restaurantId:number)
- {
+  getAllItems():Observable<ItemDTO[]>{
+    console.log("inside get method 1 : Restauarant "+this.getAllItemsEndPoint);
+    return this.http.get<ItemDTO[]>(`${this. getAllItemsEndPoint}`);
 
-  this.updateRestuarantWithItemEndPoint=this.updateRestuarantWithItemEndPoint+'/'+itemid+'/'+restaurantId;
-  this.http.put<Item[]>(`${this.updateRestuarantWithItemEndPoint}`,Item)
-  
- }
+  }
 
 }

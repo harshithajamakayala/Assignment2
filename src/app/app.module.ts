@@ -11,12 +11,19 @@ import { ItemAdminWorkComponent } from './item-admin-work/item-admin-work.compon
 import { HttpClientModule } from '@angular/common/http';
 import { AdminViewComponent } from './admin-view/admin-view.component';
 import { ItemViewComponent } from './item-view/item-view.component';
+import { BillAdminWorkComponent } from './bill-admin-work/bill-admin-work.component';
+import { BillViewComponent } from './bill-view/bill-view.component';
+
+
+
 
 const allLinks:Routes = [
   {path:'launchrestuarant',component:AdminWorkComponent},
   {path:'restaurants',component:UserComponent},
   {path:'launchitems',component:ItemAdminWorkComponent },
   {path:'viewItems',component:ItemViewComponent },
+  {path:'viewBills',component:BillViewComponent},
+  
   
   
 ]
@@ -30,6 +37,10 @@ const allLinks:Routes = [
     ItemAdminWorkComponent,
     AdminViewComponent,
     ItemViewComponent,
+    BillAdminWorkComponent,
+    BillViewComponent,
+  
+  
     
   ],
   imports: [

@@ -22,9 +22,10 @@ export class AdminViewComponent {
     this.router=router;
   }
 
-  addItem()
+  addItem(restaurantId:number)
   {
-    
+    localStorage.removeItem('restaurantId');
+    localStorage.setItem('restaurantId',restaurantId+'');
     this.router.navigate(['launchitems']);
   }
   

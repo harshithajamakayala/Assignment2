@@ -16,16 +16,22 @@ export class ItemAdminWorkComponent {
   status = false;
   message = '';
   i:Item  = new Item(0,'','',0,'');
-  r:Restaurant=new Restaurant(0,'', '', '', '', '', '', '', '', '','','');
+
+  restaurantId:string='';
 
 
   constructor(itemService: ItemOperationsService,private http:HttpClient) {
     this.__itemService = itemService;
+  this.restaurantId  =  localStorage.getItem('restaurantId') || '';
+    console.log(this.restaurantId);
   }
 
   onSubmitItem() {
+   
     console.log(this.i);
-    this.__itemService.submitItems(this.i).subscribe(
+   
+    
+    this.__itemService.submitItems(this.i,this.restaurantId).subscribe(
       
     
       data=>{
@@ -41,10 +47,7 @@ export class ItemAdminWorkComponent {
   
   }
 
-  updateItemWithRestaurant(itemid:number,restaurantId:number){
-
-    
-  }
+ 
  
 
 }

@@ -19,6 +19,7 @@ export class RestaurantServiceOperationsService {
   getAllRestaurantsEndPoint:string=this.baseURL+'/restaurant/list';
   getAllRestaurantByCityEndPoint:string=this.baseURL+'/restaurant/resbycity';
   getAllRestaurantByStateEndPoint:string=this.baseURL+'/restaurant/resbystate';
+  getAllRestaurantByNameEndPoint:string=this.baseURL+'/restaurant/restaurantName';
 
   getRestaurantArr():Restaurant[]
   {
@@ -56,6 +57,12 @@ export class RestaurantServiceOperationsService {
   this.getAllRestaurantByStateEndPoint=this.getAllRestaurantByStateEndPoint+'/'+state;
   return this.http.get<RestaurantDto[]>(`${this.getAllRestaurantByStateEndPoint}`)
   
+ }
+
+ getAllRestaurantsByName(name:string):Observable<Restaurant[]>{
+   console.log("inside get name method:"+this.getAllRestaurantByNameEndPoint);
+   this.getAllRestaurantByNameEndPoint=this.getAllRestaurantByNameEndPoint+'/'+name;
+   return this.http.get<Restaurant[]>(`${this.getAllRestaurantByNameEndPoint}`)
  }
 
 }

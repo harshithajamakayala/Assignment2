@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Item } from '../item';
+import { ItemDTO } from '../item-dto';
 import { Restaurant } from '../restaurant';
 import { RestaurantDto } from '../restaurant-dto';
 import { RestaurantServiceOperationsService } from '../restaurant-service-operations.service';
@@ -9,16 +12,18 @@ import { RestaurantServiceOperationsService } from '../restaurant-service-operat
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent {
+export class UserComponent{
 
   __restaurantService:RestaurantServiceOperationsService;
   router:Router;
 
   allRestaurants:RestaurantDto[]=[];
+  restaurants:Restaurant[]=[];
+  items:ItemDTO[]=[];
  
  
 
-  constructor(restaurantService:RestaurantServiceOperationsService,router:Router){
+  constructor(restaurantService:RestaurantServiceOperationsService,router:Router,private http: HttpClient){
     this.__restaurantService=restaurantService;
    
     this.router=router;
@@ -56,7 +61,7 @@ export class UserComponent {
    )
 
   }
-  
+
   viewAllRestuarantsByState(state:string){
     this.__restaurantService.getAllRestaurantsByState(state).subscribe(
       data=>{
@@ -71,6 +76,17 @@ export class UserComponent {
 
   }
 
+  viewAllRestuarantsByName(name:string){
+    this.__restaurantService.getAllRestaurantsByName(name).subscribe(
+      data=>{
+       console.log("data:-"+data);
+       this.restaurants=data;
+       
+      },err=>{
+       console.log("error from spring",err);
+       
+      }
+   )
  
-
+    }
 }

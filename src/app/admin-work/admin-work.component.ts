@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Restaurant } from '../restaurant';
 import { RestaurantServiceOperationsService } from '../restaurant-service-operations.service';
 
@@ -8,20 +10,18 @@ import { RestaurantServiceOperationsService } from '../restaurant-service-operat
   templateUrl: './admin-work.component.html',
   styleUrls: ['./admin-work.component.css']
 })
-export class AdminWorkComponent implements OnInit {
+export class AdminWorkComponent {
   __restaurantService: RestaurantServiceOperationsService;
   status = false;
   message = '';
   r: Restaurant = new Restaurant(0,'', '', '', '', '', '', '', '', '','','');
+  r1:Restaurant[]=[];
 
-  constructor(restaurantService: RestaurantServiceOperationsService) {
+  constructor(restaurantService: RestaurantServiceOperationsService,private http: HttpClient, private route: ActivatedRoute) {
     this.__restaurantService = restaurantService;
   }
 
-  ngOnInit() {
-   
-    
-  }
+  
  
   onSubmit() {
     console.log(this.r);
