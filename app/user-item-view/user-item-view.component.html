@@ -1,0 +1,18 @@
+<button class="btn btn-primary" (click)=" viewAllItems()">All Items</button>
+<div *ngFor="let i of items" style="background-color:rgb(252, 133, 89);">
+    <table>
+        <tr>
+            <td> <img src="/assets/images/{{i.imageName}}" alt=" Item image" width="90px" height="90px">
+            </td>
+            <td>
+                <h2>{{i.itemName}} </h2>
+                <hr />
+                <p> {{i.category}} </p>
+                <br>
+                <h4>{{i.cost}}</h4>
+            </td>
+        </tr>
+        <hr>
+    </table>
+</div>
+<br>

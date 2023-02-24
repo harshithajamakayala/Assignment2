@@ -1,0 +1,19 @@
+<button (click)="viewAllBills()">All Bills</button>
+<div *ngFor="let b1 of bills" style="background-color:rgb(238, 230, 227);width: 100%;">
+    <table style="width: 100%;">
+        <tr>
+            <td>
+                <h2>{{b1.itemCount}}</h2>
+                <hr />
+                <p> {{b1.gstAmount}} </p>
+                <br>
+                <p>{{b1.totalAmount}}</p>
+                <br>
+                <p>{{b1.restaurantName}}</p>
+                <br>
+
+            </td>
+        </tr>
+        <hr>
+    </table>
+</div>
