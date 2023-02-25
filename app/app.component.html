@@ -32,7 +32,6 @@
                     </tr>
                 </table>
 
-
             </div>
 
         </td>
@@ -48,14 +47,12 @@
                 New Restaurant</a> </td>
         <td style="width: 30%; text-align: center;"> <a routerLink="/restaurants" style="color: #000;"> View All
                 Restaurants</a> </td>
-        <td style="width: 30%; text-align: center;"> <a routerLink="/viewBills" style="color: #000;"> View All
-                Bills</a> </td>
     </tr>
     <br>
 </table>
 <hr class="line2" *ngIf="loginStatus == true" />
 <div *ngIf="loginStatus == false">
-    <!-- <img src="/assets/images/home.jpg"/> -->
+    <img src="/assets/images/mainPage.png"/>
 </div>
 <div *ngIf="loginStatus == true">
     <router-outlet></router-outlet>

@@ -20,6 +20,7 @@ export class UserComponent{
   allRestaurants:RestaurantDto[]=[];
   restaurants:Restaurant[]=[];
   items:ItemDTO[]=[];
+  allItems:Item[]=[];
  
  
 
@@ -92,6 +93,15 @@ export class UserComponent{
 
     addReview(){
       this.router.navigate(['/review']);
+    }
+
+    
+    viewItems(){
+      this.router.navigate(['/viewItem']);
+    }
+
+    viewReview(){
+      this.router.navigate(['/viewreview']);
     }
   
 }

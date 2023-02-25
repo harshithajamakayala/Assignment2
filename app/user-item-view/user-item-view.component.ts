@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Bill } from '../bill';
+import { BillOperationsService } from '../bill-operations.service';
+import { Item } from '../item';
 import { ItemDTO } from '../item-dto';
 import { ItemOperationsService } from '../item-operations.service';
 
@@ -10,11 +13,25 @@ import { ItemOperationsService } from '../item-operations.service';
 })
 export class UserItemViewComponent {
   __itemService: ItemOperationsService;
+ 
+  status = false;
+  message = '';
   router: Router;
+  List : Array<ItemDTO> = [];
+  listCount:string='' ;
+  name:string='';
+  cost:number=0;
+  gst:number=0;
+  total:number=0;
+  __billService: BillOperationsService;
+  b:Bill  = new Bill(0,'',0,0,0);
+  
 
   items: ItemDTO[] = [];
-  constructor(itemService: ItemOperationsService, router: Router) {
+  constructor(itemService: ItemOperationsService, router: Router, __billService: BillOperationsService) {
     this.__itemService = itemService;
+    this.__billService=__billService;
+  
     this.router = router;
   }
   
@@ -30,6 +47,46 @@ export class UserItemViewComponent {
       }
     )
   }
+
+
+
+  addToCart(item:string)
+  {
+
+    this.listCount = item;   
+    
+  }
+
+  payment(item:string){
+    this.cost=parseInt(item);
+    this.gst=(this.cost)*0.10;
+    this.total=this.gst+this.cost;
+
+
+  }
+  
+  onSubmitBill(){
+    this.__billService.submitBill(this.b).subscribe(
+
+      data=>{
+        this.status=true;
+        this.message="Bills submitted";
+
+      },
+      error=>{
+
+      }
+
+    )
+
+  }
+
+  proceedToPay()
+  {
+    
+    this.router.navigate(['/payment']);
+  }
+
 
 
 }

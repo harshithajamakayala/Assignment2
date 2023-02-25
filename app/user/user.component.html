@@ -48,9 +48,10 @@
                     <p> {{r1.contactNumber}} </p>
                     <p>{{r1.city}}</p>
                     <p>{{r1.state}}</p>
+                    <p *ngFor="let i of allItems">{{i.itemName}}</p>
                     <br>
                     <button (click)="addReview()" class="btn btn-primary" >Add Review</button>
-                   <app-user-item-view></app-user-item-view>
+                    <button (click)="viewItems()" class="btn btn-primary">view Item</button>
                 </td>
             </tr>
             <hr>
@@ -71,7 +72,8 @@
                         <p>{{r.state}}</p>
                         <br>
                         <button (click)="addReview()" class="btn btn-primary">Add Review</button>
-           <app-user-item-view></app-user-item-view>
+                        <button (click)="viewItems()" class="btn btn-primary">view Item</button>
+                        <button value="{{r.restaurantId}}"  (click)="viewReview()" class="btn btn-primary">view Reviews</button>
                     </td>
                 </tr>
                 <hr>

@@ -64,14 +64,6 @@ export class ItemOperationsService {
       return this.http.put<Item>(`${updateEndPoint}`,itemFromDB);
   
     }
-  
-    
- 
-
-
-
-
-
 
   getAllItems():Observable<ItemDTO[]>{
     console.log("inside get method 1 : Restauarant "+this.getAllItemsEndPoint);

@@ -1,4 +1,4 @@
-<button (click)="viewAllRestaurants()">All Restuarants</button>
+<button  class="btn btn-primary" (click)="viewAllRestaurants()">All Restuarants</button>
 <div *ngFor="let r of allRestaurants" style="background-color:rgb(244, 166, 138);">
     <table>
         <tr><img src="/assets/images/{{r.imageName}}" alt=" Restaurant image" width="150px" height="150px">
@@ -14,7 +14,7 @@
             </td>
         </tr>
         <hr>
-        <button (click)=" addItem(r.restaurantId)">
+        <button  class="btn btn-primary" (click)=" addItem(r.restaurantId)">
             Add Items</button>
     </table>
 </div>

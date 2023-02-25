@@ -16,6 +16,8 @@ import { BillViewComponent } from './bill-view/bill-view.component';
 import { UserItemViewComponent } from './user-item-view/user-item-view.component';
 import { ReviewAddComponent } from './review-add/review-add.component';
 import { SubmitComponent } from './submit/submit.component';
+import { PaymentComponent } from './payment/payment.component';
+import { ReviewViewComponent } from './review-view/review-view.component';
 
 
 
@@ -30,8 +32,9 @@ const allLinks:Routes = [
   {path:'admin/:name',component:AdminWorkComponent},
   {path:'submit',component:SubmitComponent},
   {path:'review',component:ReviewAddComponent},
-  
-  
+  {path:'viewItem',component:UserItemViewComponent},  
+  {path:'payment',component:PaymentComponent},
+  {path:'viewreview',component:ReviewViewComponent}
   
 ]
 
@@ -49,6 +52,8 @@ const allLinks:Routes = [
     UserItemViewComponent,
     ReviewAddComponent,
     SubmitComponent,
+    PaymentComponent,
+    ReviewViewComponent,
     
   
   

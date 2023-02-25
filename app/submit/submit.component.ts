@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-submit',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./submit.component.css']
 })
 export class SubmitComponent {
+
+  router:Router;
+
+  constructor( router:Router){
+    
+    this.router=router;
+  }
+
+  back()
+  {
+    
+    this.router.navigate(['/restaurants']);
+  }
 
 }
