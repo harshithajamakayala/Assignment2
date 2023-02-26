@@ -12,7 +12,7 @@
                     <tr><input type="text" placeholder="name" #name class="form-control"/></tr>
                     <tr><input type="password" placeholder="password" #password  class="form-control"/> </tr>
                     <tr>
-                        <button class="btn btn-primary" (click)="verifyUser(name.value,password.value)"> Login</button>
+                        <button class="btn btn-primary" (click)=" attemptLogin(name.value,password.value)"> Login</button>
                         <!-- <button class="btn btn-primary"> Register </button> -->
                     </tr>
                 </table>
@@ -21,9 +21,9 @@
             <div *ngIf="loginStatus == true">
                 <table>
                     <tr>
-                        <td> <img src="/assets/images/{{photo}}" width="65px" height="65px"> </td>
+                        <td> <img src="/assets/images/admin1.png" width="65px" height="65px"> </td>
                         <td>
-                            Welcome <b> {{loginName}} </b> as <i> {{userRole}} </i>
+                            Welcome <b> {{loginUsername}} </b> as <i> {{userRole}} </i>
                             <br />
                             <a href="#" style="color: #000;"> profile </a>
                             <a href="#" (click)="doLogout()" style="margin-left: 20px;" style="color: #000;"> logout </a>
@@ -40,13 +40,25 @@
 <hr class="line" />
 
 
-<table style="width: 100%;height: 10%; background-color:  rgb(240, 68, 6);" *ngIf="loginStatus == true">
+<table style="width: 100%;height: 10%; background-color:  rgb(240, 68, 6);" *ngIf="loginStatus == true && userRole == 'admin'">
     <br>
     <tr>
-        <td style="width: 30%; text-align: center;"> <a routerLink="/launchrestuarant" style="color: #000;" *ngIf="(userRole == 'admin')"> Launch
+        <td style="width: 30%; text-align: center;"> <a routerLink="/launchrestuarant" style="color: #000;"> Launch
                 New Restaurant</a> </td>
         <td style="width: 30%; text-align: center;"> <a routerLink="/restaurants" style="color: #000;"> View All
                 Restaurants</a> </td>
+        <td style="width: 30%; text-align: center;"> <a routerLink="/about" style="color: #000;"> About Us
+                    </a> </td>
+    </tr>
+    <br>
+</table>
+<table style="width: 100%;height: 10%; background-color:  rgb(240, 68, 6);" *ngIf="loginStatus == true && userRole == 'User'">
+    <br>
+    <tr>
+        <td style="width: 50%; text-align: center;"> <a routerLink="/restaurants" style="color: #000;"> View All
+                Restaurants</a> </td>
+        <td style="width: 50%; text-align: center;"> <a routerLink="/about" style="color: #000;"> About Us
+                    </a> </td>
     </tr>
     <br>
 </table>

@@ -18,6 +18,7 @@ import { ReviewAddComponent } from './review-add/review-add.component';
 import { SubmitComponent } from './submit/submit.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ReviewViewComponent } from './review-view/review-view.component';
+import { AboutComponent } from './about/about.component';
 
 
 
@@ -34,7 +35,8 @@ const allLinks:Routes = [
   {path:'review',component:ReviewAddComponent},
   {path:'viewItem',component:UserItemViewComponent},  
   {path:'payment',component:PaymentComponent},
-  {path:'viewreview',component:ReviewViewComponent}
+  {path:'viewreview',component:ReviewViewComponent},
+  {path:'about',component:AboutComponent}
   
 ]
 
@@ -54,6 +56,8 @@ const allLinks:Routes = [
     SubmitComponent,
     PaymentComponent,
     ReviewViewComponent,
+    AboutComponent,
+  
     
   
   

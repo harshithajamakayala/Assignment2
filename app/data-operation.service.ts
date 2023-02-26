@@ -1,4 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { UserLoginDTO } from './user';
+
 
 interface AppUser{
   username:string;
@@ -12,9 +16,11 @@ interface AppUser{
 })
 export class DataOperationService {
 
+  baseURL = 'http://localhost:2022';
+  loginURL : string = this.baseURL+'/user/login/';
   allAppUsers:AppUser[] = [];
   
-  constructor() { 
+  constructor(private http:HttpClient) { 
     let user1:AppUser = {
       username:"ashish",
       password : "123",
@@ -50,6 +56,14 @@ export class DataOperationService {
 
 
   }
+
+  doSpringLogin(userId:string,password:string):Observable<UserLoginDTO>
+{
+  let a:string = this.loginURL+userId+'/'+password;
+  return this.http.get<UserLoginDTO>(`${a}`);
+
+
+}
 
   doLogin(ipUsername:string,ipPassword:string):boolean
   {
